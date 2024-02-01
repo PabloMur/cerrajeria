@@ -25,28 +25,6 @@ export function HomePageBanner() {
   );
 }
 
-export function ServicesBanner() {
-  return (
-    <div
-      className="bg-secondary h-[90vh] w-full flex flex-col justify-center items-center p-4 py-10"
-      id="servicios"
-    >
-      <CustomTitle text={"Nuestros Servicios"}></CustomTitle>
-
-      <div className="flex w-full h-[80%] justify-evenly items-center">
-        <ServiceCard
-          title={"Reparacion y cambio de Cerraduras"}
-          description={
-            "Solucionamos problemas de seguridad con servicios de reparación y cambio de cerraduras. Mantén tu hogar o negocio seguro y protegido con profesionales confiables."
-          }
-        ></ServiceCard>
-        <ServiceCard title={"Aperturas de Urgencia"}></ServiceCard>
-        <ServiceCard title={"Duplicado de llaves"}></ServiceCard>
-      </div>
-    </div>
-  );
-}
-
 export function AboutBanner() {
   return (
     <div

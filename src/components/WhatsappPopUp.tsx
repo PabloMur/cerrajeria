@@ -4,33 +4,38 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import whatsapp from "../../public/whatsappPopup.svg";
 
-export default function WhatsappPopup() {
+export default function WhatsappPopup({ phone }: any) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 1500); // 2000 milisegundos = 2 segundos
+    }, 1500);
 
-    // Limpiar el temporizador al desmontar el componente
     return () => clearTimeout(timer);
   }, []);
 
   return (
     isVisible && (
-      <motion.div
-        className="fixed top-96 right-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+      <a
+        href={`https://api.whatsapp.com/send?phone=${phone}`}
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <Image
-          src={whatsapp}
-          alt="imagen de whatsapp"
-          height={120}
-          width={120}
-        />
-      </motion.div>
+        <motion.div
+          className="fixed bottom-10 right-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+        >
+          <Image
+            src={whatsapp}
+            alt="imagen de whatsapp"
+            height={120}
+            width={120}
+          />
+        </motion.div>
+      </a>
     )
   );
 }

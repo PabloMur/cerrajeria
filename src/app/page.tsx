@@ -1,10 +1,11 @@
 import {
   HomePageBanner,
-  ServicesBanner,
   AboutBanner,
   ContactBanner,
   LocationBanner,
 } from "@/components/Banner";
+
+import { ServicesBanner } from "@/components/ServicesBanner";
 
 export default function Home() {
   return (
