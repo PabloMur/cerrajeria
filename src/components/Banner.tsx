@@ -19,7 +19,7 @@ export function HomePageBanner() {
 				<div className="flex justify-center items-center gap-10">
 					<UrgentBtn></UrgentBtn>
 					<p className="text-black font-bold text-xl">Servicio las 24hs</p>
-					<p>Hola soy yo de vuelta 222</p>
+					<p>Hola soy yo de vuelta </p>
 				</div>
 			</div>
 		</div>
