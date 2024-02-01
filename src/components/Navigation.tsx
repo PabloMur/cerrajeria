@@ -2,19 +2,21 @@
 import React, { useEffect } from "react";
 import Logo from "./ui/Logo";
 import NavigationLink from "./ui/NavigationLink";
-import SmoothScroll from "smooth-scroll";
 
 export default function Navigation() {
   useEffect(() => {
-    const scroll = new SmoothScroll('a[href*="#"]', {
-      speed: 800,
-      offset: 50,
-    });
+    if (typeof window !== "undefined") {
+      const SmoothScroll = require("smooth-scroll");
+      const scroll = new SmoothScroll('a[href*="#"]', {
+        speed: 800,
+        offset: 50,
+      });
 
-    // Limpieza al desmontar el componente
-    return () => {
-      scroll.destroy();
-    };
+      // Limpieza al desmontar el componente
+      return () => {
+        scroll.destroy();
+      };
+    }
   }, []);
 
   return (
