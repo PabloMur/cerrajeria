@@ -1,6 +1,6 @@
 "use client";
-import Navigation from "./Navigation";
-import Footer from "./Footer";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import WhatsappPopaop from "@/components/WhatsappPopUp";
 export default function CustomLayout({ children }: any) {
   return (
