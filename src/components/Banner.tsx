@@ -3,15 +3,24 @@ import CustomTitle from "./ui/CustomTitle";
 import { ServiceCard } from "./Cards";
 import ContactBlister from "./ContactBlister";
 import ContactForm from "./forms/ContactForm";
+import UrgentBtn from "./buttons/UrgentBtn";
+import LocationMap from "./LocationMap";
 export function HomePageBanner() {
   return (
     <div
-      className={`${css.banner} h-[100vh] w-full flex justify-center items-center`}
+      className={`${css.banner} h-[70vh] w-full flex flex-col justify-center items-center mt-10`}
+      id="home"
     >
-      <h3 className="text-black text-4xl font-bold">
-        Abrimos puertas, cerramos preocupaciones. <br></br>Tu Cerrajería de
-        confianza.
-      </h3>
+      <div className="flex flex-col justify-center items-start gap-7">
+        <h3 className="text-black text-4xl font-bold">
+          Abrimos puertas, cerramos preocupaciones. <br></br>Tu Cerrajería de
+          confianza.
+        </h3>
+        <div className="flex justify-center items-center gap-10">
+          <UrgentBtn></UrgentBtn>
+          <p className="text-black font-bold text-xl">Servicio las 24hs</p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -19,12 +28,11 @@ export function HomePageBanner() {
 export function ServicesBanner() {
   return (
     <div
-      className="bg-secondary h-[90vh] w-full flex flex-col justify-evenly items-center"
+      className="bg-secondary h-[90vh] w-full flex flex-col justify-center items-center p-4 py-10"
       id="servicios"
     >
-      <div className="p-4 flex justify-center items-center">
-        <CustomTitle text={"Nuestros Servicios"}></CustomTitle>
-      </div>
+      <CustomTitle text={"Nuestros Servicios"}></CustomTitle>
+
       <div className="flex w-full h-[80%] justify-evenly items-center">
         <ServiceCard title={"Reparacion y cambio de Cerraduras"}></ServiceCard>
         <ServiceCard title={"Aperturas de Urgencia"}></ServiceCard>
@@ -37,11 +45,11 @@ export function ServicesBanner() {
 export function AboutBanner() {
   return (
     <div
-      className="bg-purple-500 h-[100vh] w-full flex flex-col justify-center items-center"
+      className="bg-white h-[90vh] w-full flex flex-col justify-center items-center"
       id="about"
     >
       <CustomTitle text={"Quienes Somos"}></CustomTitle>
-      <p className="text-black text-xl w-[80%] text-justify">
+      <p className="text-black text-xl w-[70%] text-justify">
         Bienvenido a La Torre Cerrajería, tu socio confiable en Mar del Plata.
         Nos dedicamos a proporcionar servicios de cerrajería las 24 horas del
         día. Con un equipo altamente calificado, nos especializamos en apertura
@@ -51,6 +59,22 @@ export function AboutBanner() {
         preferida en servicios de cerrajería. Estamos aquí para protegerte en
         todo momento.
       </p>
+    </div>
+  );
+}
+
+export function LocationBanner() {
+  return (
+    <div
+      className="bg-secondary h-[90vh] w-full flex flex-col justify-center items-center"
+      id="location"
+    >
+      <CustomTitle text={"Donde encontrarnos"}></CustomTitle>
+      <p className="text-black m-3 font-bold">
+        Estamos en pleno centro de la ciudad, por lo que en minutos podemos
+        estar ahi para aisistirte.
+      </p>
+      <LocationMap></LocationMap>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import {
   ServicesBanner,
   AboutBanner,
   ContactBanner,
+  LocationBanner,
 } from "@/components/Banner";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <HomePageBanner></HomePageBanner>
       <ServicesBanner></ServicesBanner>
       <AboutBanner></AboutBanner>
+      <LocationBanner></LocationBanner>
       <ContactBanner></ContactBanner>
     </main>
   );
