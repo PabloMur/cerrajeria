@@ -34,7 +34,12 @@ export function ServicesBanner() {
       <CustomTitle text={"Nuestros Servicios"}></CustomTitle>
 
       <div className="flex w-full h-[80%] justify-evenly items-center">
-        <ServiceCard title={"Reparacion y cambio de Cerraduras"}></ServiceCard>
+        <ServiceCard
+          title={"Reparacion y cambio de Cerraduras"}
+          description={
+            "Solucionamos problemas de seguridad con servicios de reparación y cambio de cerraduras. Mantén tu hogar o negocio seguro y protegido con profesionales confiables."
+          }
+        ></ServiceCard>
         <ServiceCard title={"Aperturas de Urgencia"}></ServiceCard>
         <ServiceCard title={"Duplicado de llaves"}></ServiceCard>
       </div>

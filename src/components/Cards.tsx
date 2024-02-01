@@ -4,9 +4,9 @@ export function ServiceCard({ title, description }: any) {
       <div className="bg-white text-black w-full h-3/5 flex justify-center items-center">
         Aca va a estar la imagen del servicio
       </div>
-      <div className="h-2/5 flex flex-col justify-center items-center">
+      <div className="h-2/5 flex flex-col justify-center items-center p-2">
         <h4 className="text-white font-bold">{title}</h4>
-        <p>{description}</p>
+        <p className="p-2 text-justify">{description}</p>
       </div>
     </div>
   );
