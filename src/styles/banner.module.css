@@ -1,6 +1,6 @@
 .banner {
   background-image: url("../../public/banner.jpg");
-  background-position: center;
+  background-position: unset;
   background-repeat: no-repeat;
   background-size: cover;
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 export function ServiceCard({ title, description, image }: any) {
   return (
-    <div className="w-[30%] bg-accent h-full flex flex-col justify-between items-center cursor-pointer">
+    <div className="sm:w-[30%] w-[100%] bg-accent h-full flex flex-col justify-between items-center cursor-pointer">
       <div className="bg-white text-black w-full h-3/5 flex justify-center items-center overflow-hidden">
         <Image src={image} alt={"imagen descriptiva del servicio"}></Image>
       </div>
