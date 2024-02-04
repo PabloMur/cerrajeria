@@ -31,8 +31,8 @@ export default function WhatsappPopup({ phone }: any) {
           <Image
             src={whatsapp}
             alt="imagen de whatsapp"
-            height={120}
-            width={120}
+            height={100}
+            width={100}
           />
         </motion.div>
       </a>

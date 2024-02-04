@@ -8,8 +8,9 @@ export default function CustomLayout({ children }: any) {
     <div>
       <Navigation></Navigation>
       {children}
-      <WhatsappPopaop phone={phone}></WhatsappPopaop>
       <Footer></Footer>
     </div>
   );
 }
+
+//<WhatsappPopaop phone={phone}></WhatsappPopaop>

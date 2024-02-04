@@ -2,44 +2,37 @@
 import React, { useEffect } from "react";
 import Logo from "./ui/Logo";
 import NavigationLink from "./ui/NavigationLink";
+import LittleBanner from "./LittleBanner";
+import { useNavigationScroll } from "@/hooks";
 
 export default function Navigation() {
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const SmoothScroll = require("smooth-scroll");
-      const scroll = new SmoothScroll('a[href*="#"]', {
-        speed: 800,
-        offset: 50,
-      });
-
-      // Limpieza al desmontar el componente
-      return () => {
-        scroll.destroy();
-      };
-    }
-  }, []);
-
+  useNavigationScroll();
+  //por el momento no es necesario este componente
+  //<LittleBanner></LittleBanner>
   return (
-    <nav className="bg-secondary text-black p-4 fixed w-full ">
-      <div className="container mx-auto flex justify-between items-center px-20">
-        <Logo></Logo>
-        <ul className="flex space-x-4">
-          <NavigationLink href={"#home"} text={"Inicio"}></NavigationLink>
-          <NavigationLink
-            href={"#servicios"}
-            text={"Servicios"}
-          ></NavigationLink>
-          <NavigationLink
-            href={"#about"}
-            text={"Acerca de Nosotros"}
-          ></NavigationLink>
-          <NavigationLink
-            href={"#location"}
-            text={"Ubicacion"}
-          ></NavigationLink>
-          <NavigationLink href={"#contacto"} text={"Contacto"}></NavigationLink>
-        </ul>
-      </div>
+    <nav className="bg-secondary text-black sm:p-4 py-6 w-[100%] fixed flex justify-center items-center">
+      <Logo></Logo>
     </nav>
   );
+}
+
+{
+  /* <div className="container flex justify-center sm:justify-between items-center sm:px-20">
+<ul className="hidden sm:flex space-x-4">
+  <NavigationLink href={"#home"} text={"Inicio"}></NavigationLink>
+  <NavigationLink
+    href={"#servicios"}
+    text={"Servicios"}
+  ></NavigationLink>
+  <NavigationLink
+    href={"#about"}
+    text={"Acerca de Nosotros"}
+  ></NavigationLink>
+  <NavigationLink
+    href={"#location"}
+    text={"Ubicacion"}
+  ></NavigationLink>
+  <NavigationLink href={"#contacto"} text={"Contacto"}></NavigationLink>
+</ul>
+</div> */
 }

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main
       className="flex flex-col 
-    min-h-screen items-start justify-between w-full"
+    min-h-screen items-start justify-center"
     >
       <HomePageBanner></HomePageBanner>
       <ServicesBanner></ServicesBanner>
