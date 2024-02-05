@@ -22,5 +22,10 @@ const config: Config = {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      boxSizing: ["box-border"],
+    },
+  },
 };
 export default config;
