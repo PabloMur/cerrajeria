@@ -1,5 +1,11 @@
-import Image from "next/image";
-export function ServiceCard({ title, description, image }: any) {
+import Image, { StaticImageData } from "next/image";
+
+type ServiceCardType = {
+  title: string;
+  description: string;
+  image: StaticImageData;
+};
+export function ServiceCard({ title, description, image }: ServiceCardType) {
   return (
     <div className="sm:w-[30%] w-[100%] bg-accent min-h-[100%] flex flex-col justify-between items-center cursor-pointer">
       <div className="bg-white text-black w-full flex justify-center items-center overflow-hidden">
