@@ -12,7 +12,7 @@ export function ServicesBanner() {
     >
       <CustomTitle text={"Nuestros Servicios"}></CustomTitle>
 
-      <div className="flex flex-col w-full h-[80%] justify-evenly items-center gap-3">
+      <div className="flex flex-col sm:flex-row w-full h-[70%] justify-evenly items-center gap-3 bg-red-400">
         <ServiceCard
           image={reparaciones}
           title={"Reparacion y cambio de Cerraduras"}

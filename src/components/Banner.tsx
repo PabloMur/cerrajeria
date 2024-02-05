@@ -12,7 +12,7 @@ export function HomePageBanner() {
       id="home"
     >
       <div className="flex flex-col justify-center items-center gap-7">
-        <h3 className="text-black text-2xl sm:text-4xl font-bold flex text-center">
+        <h3 className="text-black text-2xl sm:text-4xl font-bold text-left p-4">
           Abrimos puertas, cerramos preocupaciones. <br></br>Tu Cerrajería de
           confianza.
         </h3>
@@ -56,10 +56,11 @@ export function LocationBanner() {
         Estamos en pleno centro de la ciudad, por lo que en minutos podemos
         estar ahi para aisistirte.
       </p>
-      <LocationMap></LocationMap>
     </div>
   );
 }
+
+//<LocationMap></LocationMap>
 
 export function ContactBanner() {
   return (
