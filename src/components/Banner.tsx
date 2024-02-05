@@ -5,14 +5,14 @@ import ContactBlister from "./ContactBlister";
 //import ContactForm from "./forms/ContactForm";
 import UrgentBtn from "./buttons/UrgentBtn";
 import LocationMap from "./LocationMap";
-export function HomePageBanner() 
+export function HomePageBanner() {
   return (
     <div
       className={`${css.banner} min-h-[70vh] w-full flex flex-col justify-center items-center mt-10`}
       id="home"
     >
       <div className="flex flex-col justify-center items-center gap-7">
-        <h3 className="text-black text-2xl sm:text-4xl font-bold flex text-center">
+        <h3 className="text-black text-2xl sm:text-4xl font-bold text-left p-4">
           Abrimos puertas, cerramos preocupaciones. <br></br>Tu Cerrajería de
           confianza.
         </h3>
@@ -56,10 +56,11 @@ export function LocationBanner() {
         Estamos en pleno centro de la ciudad, por lo que en minutos podemos
         estar ahi para aisistirte.
       </p>
-      <LocationMap></LocationMap>
     </div>
   );
 }
+
+//<LocationMap></LocationMap>
 
 export function ContactBanner() {
   return (
