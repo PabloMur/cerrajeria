@@ -5,7 +5,7 @@ import ContactBlister from "./ContactBlister";
 //import ContactForm from "./forms/ContactForm";
 import UrgentBtn from "./buttons/UrgentBtn";
 import LocationMap from "./LocationMap";
-export function HomePageBanner() {
+export function HomePageBanner() 
   return (
     <div
       className={`${css.banner} min-h-[70vh] w-full flex flex-col justify-center items-center mt-10`}
