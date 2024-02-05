@@ -7,13 +7,17 @@ type ServiceCardType = {
 };
 export function ServiceCard({ title, description, image }: ServiceCardType) {
   return (
-    <div className="sm:w-[30%] w-[100%] bg-accent min-h-[100%] flex flex-col justify-between items-center cursor-pointer">
-      <div className="bg-white text-black w-full flex justify-center items-center overflow-hidden">
-        <Image src={image} alt={"imagen descriptiva del servicio"}></Image>
+    <div className="sm:w-1/3 max-w-[350px]  bg-accent flex flex-col min-h-[400px]">
+      <div className=" text-black w-full flex justify-center items-center h-[200px] overflow-hidden min-h-3/5 ">
+        <Image
+          src={image}
+          alt={"imagen descriptiva del servicio"}
+          className="bg-accent"
+        ></Image>
       </div>
-      <div className="h-2/5 flex flex-col justify-center items-center p-2">
+      <div className="min-h-2/5 flex flex-col justify-center items-center p-2">
         <h4 className="text-white font-bold">{title}</h4>
-        <p className="p-2 text-justify">{description}</p>
+        <p className="p-2 text-justify h-full">{description}</p>
       </div>
     </div>
   );
