@@ -12,7 +12,7 @@ export function HomePageBanner() {
       id="home"
     >
       <div className="flex flex-col justify-center items-center gap-7">
-        <h3 className="text-black text-2xl sm:text-4xl font-bold text-left p-4">
+        <h3 className="text-black text-2xl sm:text-4xl font-bold text-center sm:text-left p-4">
           Abrimos puertas, cerramos preocupaciones. <br></br>Tu Cerrajería de
           confianza.
         </h3>
