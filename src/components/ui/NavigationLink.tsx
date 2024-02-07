@@ -9,7 +9,7 @@ export default function NavigationLink({
   handleClick,
 }: NavigationLinkType) {
   return (
-    <li onClick={handleClick}>
+    <li onClick={handleClick} className="cursor-pointer">
       <a className="font-bold" href={href}>
         {text}
       </a>
