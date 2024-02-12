@@ -56,11 +56,10 @@ export function LocationBanner() {
         Estamos en pleno centro de la ciudad, por lo que en minutos podemos
         estar ahi para aisistirte.
       </p>
+      <LocationMap></LocationMap>
     </div>
   );
 }
-
-//<LocationMap></LocationMap>
 
 export function ContactBanner() {
   return (
