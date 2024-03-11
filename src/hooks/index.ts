@@ -9,7 +9,6 @@ export function useNavigationScroll() {
         offset: 50,
       });
 
-      // Limpieza al desmontar el componente
       return () => {
         scroll.destroy();
       };
