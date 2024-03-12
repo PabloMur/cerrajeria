@@ -20,7 +20,7 @@ export default function Navigation() {
         <DesktopMenu></DesktopMenu>
       </div>
       {!menuState && (
-        <div className="bg-secondary flex justify-center items-center sm:px-20 h-96 absolute top-20 left-0 right-0 bottom-0">
+        <div className="bg-secondary flex justify-center items-center sm:px-20 h-[95vh] absolute top-20 left-0 right-0 bottom-0">
           <ul className="flex sm:space-x-4 h-full flex-col justify-center items-center gap-3">
             <NavigationLink
               href={"#home"}
