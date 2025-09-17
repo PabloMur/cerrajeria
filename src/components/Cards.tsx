@@ -7,7 +7,7 @@ type ServiceCardType = {
 };
 export function ServiceCard({ title, description, image }: ServiceCardType) {
   return (
-    <div className="sm:w-1/3 max-w-[350px]  bg-accent flex flex-col min-h-[400px]">
+    <div className="sm:w-1/3 max-w-[350px]  bg-accent flex flex-col min-h-[400px] rounded-xl overflow-hidden ">
       <div className=" text-black w-full flex justify-center items-center h-[200px] overflow-hidden min-h-3/5 ">
         <Image
           src={image}

@@ -37,6 +37,13 @@ export default function Navigation() {
               }}
             ></NavigationLink>
             <NavigationLink
+              href={"#pagos"}
+              text={"Medios de pago"}
+              handleClick={() => {
+                setMenuState(!menuState);
+              }}
+            ></NavigationLink>
+            <NavigationLink
               href={"#about"}
               text={"Acerca de Nosotros"}
               handleClick={() => {

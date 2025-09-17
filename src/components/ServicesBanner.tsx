@@ -7,12 +7,12 @@ import duplicado from "../../public/duplicado.jpg";
 export function ServicesBanner() {
   return (
     <div
-      className="bg-secondary min-h-[90vh] w-full flex flex-col justify-center items-center p-4 py-10"
+      className="bg-gradient-to-b from-secondary to-white min-h-[90vh] w-full flex flex-col justify-center items-center p-4 py-10"
       id="servicios"
     >
       <CustomTitle text={"Nuestros Servicios"}></CustomTitle>
 
-      <div className="flex flex-col sm:flex-row w-full justify-evenly items-center gap-3">
+      <div className="flex flex-col sm:flex-row w-full justify-evenly items-center gap-2">
         <ServiceCard
           image={reparaciones}
           title={"Reparacion y cambio de Cerraduras"}
