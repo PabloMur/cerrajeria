@@ -15,7 +15,7 @@ const config: Config = {
       },
       colors: {
         primary: "#FFFFFF", // Blanco
-        secondary: "#FDE74C", // Amarillo
+        secondary: "#FFE600", // Amarillo
         accent: "#333333", // Negro
         text: "#666666", // Gris medio para el texto
       },
