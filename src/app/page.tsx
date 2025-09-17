@@ -6,6 +6,7 @@ import {
 } from "@/components/Banner";
 
 import { ServicesBanner } from "@/components/ServicesBanner";
+import { PaymentsBanner } from "@/components/PaymentBanner";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
     >
       <HomePageBanner></HomePageBanner>
       <ServicesBanner></ServicesBanner>
+      <PaymentsBanner></PaymentsBanner>
       <AboutBanner></AboutBanner>
       <LocationBanner></LocationBanner>
       <ContactBanner></ContactBanner>
