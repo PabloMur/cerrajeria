@@ -1,6 +1,7 @@
 import css from "@/styles/banner.module.css";
 import CustomTitle from "./ui/CustomTitle";
 import ContactBlister from "./ContactBlister";
+import AttetionStatus from "./ui/AttentionStatus";
 //por el momento no es necesario este componente
 //import ContactForm from "./forms/ContactForm";
 import UrgentBtn from "./buttons/UrgentBtn";
@@ -8,15 +9,19 @@ import LocationMap from "./LocationMap";
 export function HomePageBanner() {
 	return (
 		<div
-			className={`${css.banner} min-h-[70vh] w-full flex flex-col justify-center items-center mt-10`}
+			className={`${css.banner} min-h-[60vh] w-full flex flex-col justify-center items-center mt-10`}
 			id="home"
 		>
 			<div className="flex flex-col justify-center items-center gap-7">
+				<div className="w-full flex justify-center items-end">
+					<AttetionStatus></AttetionStatus>
+				</div>
 				<h3 className="text-black text-2xl sm:text-4xl font-bold text-center p-4">
 					Abrimos puertas, cerramos preocupaciones. <br></br>Tu Cerrajería de
 					confianza.
 				</h3>
-				<div className="flex justify-center items-center gap-10">
+				<div className="flex flex-col justify-center items-center gap-10">
+					
 					<UrgentBtn></UrgentBtn>
 				</div>
 			</div>
