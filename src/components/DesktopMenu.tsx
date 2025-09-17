@@ -6,6 +6,7 @@ export default function DesktopMenu() {
       <ul className="flex space-x-4 h-full justify-center items-center">
         <NavigationLink href={"#home"} text={"Inicio"}></NavigationLink>
         <NavigationLink href={"#servicios"} text={"Servicios"}></NavigationLink>
+        <NavigationLink href={"#pagos"} text={"Medios de Pago"}></NavigationLink>
         <NavigationLink
           href={"#about"}
           text={"Acerca de Nosotros"}
