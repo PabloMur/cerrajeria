@@ -13,9 +13,6 @@ export function HomePageBanner() {
 			id="home"
 		>
 			<div className="flex flex-col justify-center items-center gap-7">
-				<div className="w-full flex justify-center items-end">
-					<AttetionStatus></AttetionStatus>
-				</div>
 				<h3 className="text-black text-2xl sm:text-4xl font-bold text-center p-4">
 					Abrimos puertas, cerramos preocupaciones. <br></br>Tu Cerrajería de
 					confianza.

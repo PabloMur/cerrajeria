@@ -1,3 +1,4 @@
+import AttentionStatus from "./ui/AttentionStatus";
 import NavigationLink from "./ui/NavigationLink";
 
 export default function DesktopMenu() {
@@ -9,10 +10,11 @@ export default function DesktopMenu() {
         <NavigationLink href={"#pagos"} text={"Medios de Pago"}></NavigationLink>
         <NavigationLink
           href={"#about"}
-          text={"Acerca de Nosotros"}
-        ></NavigationLink>
+          text={"Nosotros"}
+          ></NavigationLink>
         <NavigationLink href={"#location"} text={"Ubicacion"}></NavigationLink>
         <NavigationLink href={"#contacto"} text={"Contacto"}></NavigationLink>
+        <AttentionStatus/>
       </ul>
     </div>
   );
