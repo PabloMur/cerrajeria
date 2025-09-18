@@ -18,6 +18,7 @@ const config: Config = {
         secondary: "#FFE600", // Amarillo
         accent: "#333333", // Negro
         text: "#666666", // Gris medio para el texto
+        purple: "#7A3FFF" //Morado
       },
     },
   },

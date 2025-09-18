@@ -6,6 +6,7 @@ import LittleBanner from "./LittleBanner";
 import MenuBtn from "./ui/MenuBtn";
 import { useNavigationScroll } from "@/hooks";
 import DesktopMenu from "./DesktopMenu";
+import AttentionStatus from "./ui/AttentionStatus";
 
 export default function Navigation() {
   useNavigationScroll();
@@ -14,6 +15,7 @@ export default function Navigation() {
   //<LittleBanner></LittleBanner>
   return (
     <nav className="bg-secondary text-black sm:p-4 py-6 w-[100%] fixed flex flex-col justify-center items-center">
+
       <div className="flex justify-between items-center w-full px-4">
         <Logo></Logo>
         <MenuBtn state={menuState} setState={setMenuState}></MenuBtn>
