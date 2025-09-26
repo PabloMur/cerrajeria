@@ -11,10 +11,8 @@ import AttentionStatus from "./ui/AttentionStatus";
 export default function Navigation() {
   useNavigationScroll();
   const [menuState, setMenuState] = useState(true);
-  //por el momento no es necesario este componente
-  //<LittleBanner></LittleBanner>
   return (
-    <nav className="bg-secondary text-black sm:p-4 py-6 w-[100%] fixed flex flex-col justify-center items-center">
+    <nav className="bg-secondary text-black sm:p-4 py-6 w-[100%] fixed flex flex-col justify-center items-center z-50">
 
       <div className="flex justify-between items-center w-full px-4">
         <Logo></Logo>
@@ -22,7 +20,7 @@ export default function Navigation() {
         <DesktopMenu></DesktopMenu>
       </div>
       {!menuState && (
-        <div className="bg-secondary flex justify-center items-center sm:px-20 h-[95vh] absolute top-20 left-0 right-0 bottom-0">
+        <div className="bg-red-500 flex justify-center items-center sm:px-20 h-[95vh] absolute top-20 left-0 right-0 bottom-0 z-50">
           <ul className="flex sm:space-x-4 h-full flex-col justify-center items-center gap-3">
             <NavigationLink
               href={"#home"}
