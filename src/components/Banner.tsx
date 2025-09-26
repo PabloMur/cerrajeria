@@ -1,12 +1,26 @@
+"use client"; // si estás en App Router (Next.js 13+)
+
+import { useEffect, useState } from "react";
 import css from "@/styles/banner.module.css";
 import CustomTitle from "./ui/CustomTitle";
 import ContactBlister from "./ContactBlister";
-import AttetionStatus from "./ui/AttentionStatus";
-//por el momento no es necesario este componente
-//import ContactForm from "./forms/ContactForm";
 import UrgentBtn from "./buttons/UrgentBtn";
 import LocationMap from "./LocationMap";
+
 export function HomePageBanner() {
+	const [apiMessage, setApiMessage] = useState<string>("Cargando...");
+
+	useEffect(() => {
+		fetch("https://backend-cerrajeria.vercel.app/api/test") // URL de tu backend
+			.then((res) => res.json())
+			.then((data) => {
+				setApiMessage(JSON.stringify(data));
+			})
+			.catch((err) => {
+				setApiMessage("Error: " + err.message);
+			});
+	}, []);
+
 	return (
 		<div
 			className={`${css.banner} min-h-[60vh] w-full flex flex-col justify-center items-center mt-10`}
@@ -14,12 +28,15 @@ export function HomePageBanner() {
 		>
 			<div className="flex flex-col justify-center items-center gap-7">
 				<h3 className="text-black text-2xl sm:text-4xl font-bold text-center p-4">
-					Abrimos puertas, cerramos preocupaciones. <br></br>Tu Cerrajería de
+					Abrimos puertas, cerramos preocupaciones. <br />Tu Cerrajería de
 					confianza.
 				</h3>
+
+				{/* Mostrar mensaje de la API */}
+				<p className="text-sm text-gray-600">Respuesta API: {apiMessage}</p>
+
 				<div className="flex flex-col justify-center items-center gap-10">
-					
-					<UrgentBtn></UrgentBtn>
+					<UrgentBtn />
 				</div>
 			</div>
 		</div>
@@ -32,7 +49,7 @@ export function AboutBanner() {
 			className="bg-white min-h-[90vh] w-full flex flex-col justify-center items-center p-10"
 			id="about"
 		>
-			<CustomTitle text={"Quienes Somos"}></CustomTitle>
+			<CustomTitle text={"Quienes Somos"} />
 			<p className="text-black text-xl sm:w-[70%] text-justify">
 				Bienvenido a La Torre Cerrajería, tu socio confiable en Mar del Plata.
 				Nos dedicamos a proporcionar servicios de cerrajería las 24 horas del
@@ -50,15 +67,15 @@ export function AboutBanner() {
 export function LocationBanner() {
 	return (
 		<div
-			className="bg-secondary h-[90vh] w-full flex flex-col justify-center items-center p-10"
+			className="bg-gradient-to-b from-secondary to-white h-[90vh] w-full flex flex-col justify-center items-center p-10"
 			id="location"
 		>
-			<CustomTitle text={"Donde encontrarnos"}></CustomTitle>
+			<CustomTitle text={"Donde encontrarnos"} />
 			<p className="text-black m-3 font-bold text-justify">
 				Estamos en pleno centro de la ciudad, por lo que en minutos podemos
 				estar ahi para aisistirte.
 			</p>
-			<LocationMap></LocationMap>
+			<LocationMap />
 		</div>
 	);
 }
@@ -69,9 +86,9 @@ export function ContactBanner() {
 			className="bg-white  w-full flex flex-col justify-start items-center pt-10"
 			id="contacto"
 		>
-			<CustomTitle text={"Contactanos"}></CustomTitle>
+			<CustomTitle text={"Contactanos"} />
 			<div className="flex justify-center items-center w-full h-full">
-				<ContactBlister></ContactBlister>
+				<ContactBlister />
 			</div>
 		</div>
 	);
