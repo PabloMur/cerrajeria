@@ -9,16 +9,16 @@ const AttentionStatus = () => {
     try {
       const res = await fetch("https://backend-cerrajeria.vercel.app/api/service");
       const data = await res.json();
-      setServicioActivo(data.data?.servicio ?? false);
+      setServicioActivo(data.servicio ?? false); // <- usar data.servicio
     } catch (err) {
       console.error("Error fetching status:", err);
     }
   };
 
   useEffect(() => {
-    fetchStatus(); // fetch inicial
-    const interval = setInterval(fetchStatus, 3000); // cada 3 segundos
-    return () => clearInterval(interval); // limpiar al desmontar
+    fetchStatus();
+    const interval = setInterval(fetchStatus, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   if (servicioActivo === null) return <div>Cargando...</div>;
@@ -28,7 +28,7 @@ const AttentionStatus = () => {
       <p>{servicioActivo ? "Técnicos disponibles" : "Técnicos ocupados"}</p>
       <div
         className={`h-[10px] w-[10px] rounded-full ${
-          servicioActivo ? "bg-green-400 animate-pulse" : "bg-red-400"
+          servicioActivo ? "bg-green-400 animate-pulse" : "bg-red-400 animate-pulse"
         }`}
       ></div>
     </div>
