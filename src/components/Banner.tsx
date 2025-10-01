@@ -11,7 +11,9 @@ export function HomePageBanner() {
 	const [apiMessage, setApiMessage] = useState<string>("Cargando...");
 
 	useEffect(() => {
-		fetch("https://backend-cerrajeria.vercel.app/api/test") // URL de tu backend
+		fetch("https://backend-cerrajeria.vercel.app/api/test", {
+			method: "POST",
+		}) // URL de tu backend
 			.then((res) => res.json())
 			.then((data) => {
 				setApiMessage(JSON.stringify(data));
