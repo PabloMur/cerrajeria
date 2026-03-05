@@ -2,68 +2,42 @@
 import React, { useState } from "react";
 import Logo from "./ui/Logo";
 import NavigationLink from "./ui/NavigationLink";
-import LittleBanner from "./LittleBanner";
 import MenuBtn from "./ui/MenuBtn";
 import { useNavigationScroll } from "@/hooks";
 import DesktopMenu from "./DesktopMenu";
-import AttentionStatus from "./ui/AttentionStatus";
+
+const NAV_LINKS = [
+  { href: "#home", text: "Inicio" },
+  { href: "#servicios", text: "Servicios" },
+  { href: "#pagos", text: "Medios de pago" },
+  { href: "#about", text: "Nosotros" },
+  { href: "#location", text: "Ubicación" },
+  { href: "#contacto", text: "Contacto" },
+];
 
 export default function Navigation() {
   useNavigationScroll();
-  const [menuState, setMenuState] = useState(true);
-  return (
-    <nav className="bg-secondary text-black sm:p-4 py-6 w-[100%] fixed flex flex-col justify-center items-center z-50">
+  const [menuOpen, setMenuOpen] = useState(true);
 
-      <div className="flex justify-between items-center w-full px-4">
-        <Logo></Logo>
-        <MenuBtn state={menuState} setState={setMenuState}></MenuBtn>
-        <DesktopMenu></DesktopMenu>
+  return (
+    <nav className="bg-secondary shadow-md w-full fixed flex flex-col justify-center items-center z-50">
+      <div className="flex justify-between items-center w-full px-6 py-4 max-w-6xl mx-auto">
+        <Logo />
+        <MenuBtn state={menuOpen} setState={setMenuOpen} />
+        <DesktopMenu />
       </div>
-      {!menuState && (
-        <div className="bg-red-500 flex justify-center items-center sm:px-20 h-[95vh] absolute top-20 left-0 right-0 bottom-0 z-50">
-          <ul className="flex sm:space-x-4 h-full flex-col justify-center items-center gap-3">
-            <NavigationLink
-              href={"#home"}
-              text={"Inicio"}
-              handleClick={() => {
-                setMenuState(!menuState);
-              }}
-            ></NavigationLink>
-            <NavigationLink
-              href={"#servicios"}
-              text={"Servicios"}
-              handleClick={() => {
-                setMenuState(!menuState);
-              }}
-            ></NavigationLink>
-            <NavigationLink
-              href={"#pagos"}
-              text={"Medios de pago"}
-              handleClick={() => {
-                setMenuState(!menuState);
-              }}
-            ></NavigationLink>
-            <NavigationLink
-              href={"#about"}
-              text={"Acerca de Nosotros"}
-              handleClick={() => {
-                setMenuState(!menuState);
-              }}
-            ></NavigationLink>
-            <NavigationLink
-              href={"#location"}
-              text={"Ubicacion"}
-              handleClick={() => {
-                setMenuState(!menuState);
-              }}
-            ></NavigationLink>
-            <NavigationLink
-              href={"#contacto"}
-              text={"Contacto"}
-              handleClick={() => {
-                setMenuState(!menuState);
-              }}
-            ></NavigationLink>
+
+      {!menuOpen && (
+        <div className="bg-secondary flex justify-center items-center w-full h-[95vh] absolute top-[68px] left-0 z-50 shadow-xl">
+          <ul className="flex flex-col justify-center items-center gap-8">
+            {NAV_LINKS.map((link) => (
+              <NavigationLink
+                key={link.href}
+                href={link.href}
+                text={link.text}
+                handleClick={() => setMenuOpen(true)}
+              />
+            ))}
           </ul>
         </div>
       )}

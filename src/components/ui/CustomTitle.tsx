@@ -1,7 +1,19 @@
-export default function CustomTitle({ text }: any) {
+type CustomTitleProps = {
+  text: string;
+  light?: boolean;
+};
+
+export default function CustomTitle({ text, light = false }: CustomTitleProps) {
   return (
-    <h3 className="text-black font-bold text-2xl p-4 w-full flex justify-center items-center">
-      {text}
-    </h3>
+    <div className="flex flex-col items-center gap-3 mb-4">
+      <h3
+        className={`font-bold text-3xl sm:text-4xl tracking-tight text-center ${
+          light ? "text-white" : "text-accent"
+        }`}
+      >
+        {text}
+      </h3>
+      <div className="w-14 h-1 bg-secondary rounded-full" />
+    </div>
   );
 }

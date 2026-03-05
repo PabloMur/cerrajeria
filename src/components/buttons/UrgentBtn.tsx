@@ -1,14 +1,19 @@
+"use client";
 import Image from "next/image";
 import whastappGreen from "../../../public/whatsappgreen.svg";
+import { useSiteConfig } from "@/context/SiteConfigContext";
 
 export default function UrgentBtn() {
+  const { config } = useSiteConfig();
+  const text = encodeURIComponent("Me gustaría saber el precio del servicio de urgencias");
+
   return (
     <a
-      href="https://wa.me/5492234660539?text=Me%20gustaría%20saber%20el%20precio%20del%20Urgencias"
+      href={`https://wa.me/${config.phone}?text=${text}`}
       target="_blank"
       className="
         flex items-center gap-3
-       bg-black
+        bg-black
         text-white font-bold text-lg
         px-6 py-3 rounded-full
         shadow-xl hover:shadow-xl

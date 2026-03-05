@@ -1,67 +1,108 @@
-"use client"; // si estás en App Router (Next.js 13+)
+"use client";
 
-import { useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import css from "@/styles/banner.module.css";
 import CustomTitle from "./ui/CustomTitle";
 import ContactBlister from "./ContactBlister";
 import UrgentBtn from "./buttons/UrgentBtn";
 import LocationMap from "./LocationMap";
+import AttentionStatus from "./ui/AttentionStatus";
+import ContactForm from "./forms/ContactForm";
+import { useSiteConfig } from "@/context/SiteConfigContext";
 
-export function HomePageBanner() {
-	const [apiMessage, setApiMessage] = useState<string>("Cargando...");
+function CountUp({ target, suffix }: { target: number; suffix: string }) {
+	const [count, setCount] = useState(0);
+	const ref = useRef(null);
+	const inView = useInView(ref, { once: true, amount: 0.5 });
 
 	useEffect(() => {
-		fetch("https://backend-cerrajeria.vercel.app/api/service", {
-			method: "GET",
-		}) // URL de tu backend
-			.then((res) => res.json())
-			.then((data) => {
-				setApiMessage(JSON.stringify(data));
-			})
-			.catch((err) => {
-				setApiMessage("Error: " + err.message);
-			});
-	}, []);
+		if (!inView) return;
+		const duration = 1200;
+		const steps = 40;
+		const increment = target / steps;
+		let current = 0;
+		const timer = setInterval(() => {
+			current += increment;
+			if (current >= target) {
+				setCount(target);
+				clearInterval(timer);
+			} else {
+				setCount(Math.floor(current));
+			}
+		}, duration / steps);
+		return () => clearInterval(timer);
+	}, [inView, target]);
 
+	return <span ref={ref}>{count}{suffix}</span>;
+}
+
+export function HomePageBanner() {
 	return (
 		<div
-			className={`${css.banner} min-h-[60vh] w-full flex flex-col justify-center items-center mt-10`}
+			className={`${css.banner} min-h-[80vh] w-full flex flex-col justify-center items-center relative mt-10`}
 			id="home"
 		>
-			<div className="flex flex-col justify-center items-center gap-7">
-				<h3 className="text-black text-2xl sm:text-4xl font-bold text-center p-4">
-					Abrimos puertas, cerramos preocupaciones. <br />Tu Cerrajería de
-					confianza.
-				</h3>
+			<div className="absolute inset-0 bg-black/50" />
 
-				{/* Mostrar mensaje de la API */}
-				<p className="text-sm text-gray-600">Respuesta API: {apiMessage}</p>
+			<div className="relative z-10 flex flex-col justify-center items-center gap-6 px-6 text-center max-w-3xl">
+				<p className="text-secondary font-semibold text-sm uppercase tracking-widest">
+					Cerrajería 24 horas · Mar del Plata
+				</p>
+				<h1 className="text-white text-3xl sm:text-5xl font-bold leading-tight">
+					Abrimos puertas,<br />
+					<span className="text-secondary">cerramos preocupaciones.</span>
+				</h1>
+				<p className="text-gray-300 text-base sm:text-lg max-w-xl">
+					Servicio de cerrajería profesional y de confianza. Respondemos rápido cuando más lo necesitás.
+				</p>
 
-				<div className="flex flex-col justify-center items-center gap-10">
-					<UrgentBtn />
-				</div>
+				<AttentionStatus />
+				<UrgentBtn />
 			</div>
 		</div>
 	);
 }
 
 export function AboutBanner() {
+	const { config } = useSiteConfig();
+
+	const stats = [
+		{ label: "Años de experiencia", target: config.stats.years, suffix: "+" },
+		{ label: "Clientes satisfechos", target: config.stats.clients, suffix: "+" },
+		{ label: "Disponibilidad", target: null as null, display: "24/7" },
+	];
+
 	return (
 		<div
-			className="bg-white min-h-[90vh] w-full flex flex-col justify-center items-center p-10"
+			className="bg-accent w-full flex flex-col justify-center items-center px-6 py-20"
 			id="about"
 		>
-			<CustomTitle text={"Quienes Somos"} />
-			<p className="text-black text-xl sm:w-[70%] text-justify">
-				Bienvenido a La Torre Cerrajería, tu socio confiable en Mar del Plata.
-				Nos dedicamos a proporcionar servicios de cerrajería las 24 horas del
-				día. Con un equipo altamente calificado, nos especializamos en apertura
-				de puertas, reparación y cambio de cerraduras. En La Torre, nuestra
-				misión es brindar soluciones rápidas y seguras para garantizar tu
-				tranquilidad. Con años de experiencia, nos enorgullece ser la elección
-				preferida en servicios de cerrajería. Estamos aquí para protegerte en
-				todo momento.
-			</p>
+			<CustomTitle text={"Quiénes Somos"} light />
+			<div className="flex flex-col sm:flex-row gap-10 mt-6 max-w-5xl w-full items-start">
+				<p className="text-gray-300 text-base leading-relaxed sm:w-1/2 text-justify">
+					{config.about}
+				</p>
+				<div className="sm:w-1/2 flex flex-col gap-4">
+					{stats.map((stat, i) => (
+						<motion.div
+							key={stat.label}
+							initial={{ opacity: 0, x: 40 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							viewport={{ once: true, amount: 0.5 }}
+							transition={{ duration: 0.4, delay: i * 0.15, ease: "easeOut" }}
+							className="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/10"
+						>
+							<span className="text-secondary font-bold text-3xl">
+								{stat.target !== null
+									? <CountUp target={stat.target} suffix={stat.suffix} />
+									: stat.display}
+							</span>
+							<span className="text-gray-300 text-sm">{stat.label}</span>
+						</motion.div>
+					))}
+				</div>
+			</div>
 		</div>
 	);
 }
@@ -69,15 +110,17 @@ export function AboutBanner() {
 export function LocationBanner() {
 	return (
 		<div
-			className="bg-gradient-to-b from-secondary to-white h-[90vh] w-full flex flex-col justify-center items-center p-10"
+			className="bg-white w-full flex flex-col justify-center items-center px-6 py-20"
 			id="location"
 		>
-			<CustomTitle text={"Donde encontrarnos"} />
-			<p className="text-black m-3 font-bold text-justify">
+			<CustomTitle text={"Dónde encontrarnos"} />
+			<p className="text-gray-500 text-center max-w-md mb-6">
 				Estamos en pleno centro de la ciudad, por lo que en minutos podemos
-				estar ahi para aisistirte.
+				estar ahí para asistirte.
 			</p>
-			<LocationMap />
+			<div className="w-full max-w-4xl h-[400px] rounded-2xl overflow-hidden shadow-xl">
+				<LocationMap />
+			</div>
 		</div>
 	);
 }
@@ -85,12 +128,13 @@ export function LocationBanner() {
 export function ContactBanner() {
 	return (
 		<div
-			className="bg-white  w-full flex flex-col justify-start items-center pt-10"
+			className="bg-gray-50 w-full flex flex-col justify-start items-center py-20 px-6"
 			id="contacto"
 		>
 			<CustomTitle text={"Contactanos"} />
-			<div className="flex justify-center items-center w-full h-full">
+			<div className="flex flex-col sm:flex-row justify-center items-start w-full max-w-4xl gap-10 mt-6">
 				<ContactBlister />
+				<ContactForm />
 			</div>
 		</div>
 	);
