@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls c:/Users/HP/Documents/code/cerrajeria/.env*)"
+    ]
+  }
+}

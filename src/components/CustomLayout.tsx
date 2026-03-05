@@ -1,16 +1,25 @@
 "use client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import WhatsappPopaop from "@/components/WhatsappPopUp";
-export default function CustomLayout({ children }: any) {
-  const phone = "5492234660539";
+import WhatsappPopup from "@/components/WhatsappPopUp";
+import { SiteConfigProvider, useSiteConfig } from "@/context/SiteConfigContext";
+
+function LayoutInner({ children }: { children: React.ReactNode }) {
+  const { config } = useSiteConfig();
   return (
     <div>
-      <Navigation></Navigation>
+      <Navigation />
       {children}
-      <Footer></Footer>
+      <Footer />
+      <WhatsappPopup phone={config.phone} />
     </div>
   );
 }
 
-//<WhatsappPopaop phone={phone}></WhatsappPopaop>
+export default function CustomLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <SiteConfigProvider>
+      <LayoutInner>{children}</LayoutInner>
+    </SiteConfigProvider>
+  );
+}

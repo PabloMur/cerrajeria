@@ -1,17 +1,2 @@
-import { useEffect } from "react";
-
-export function useNavigationScroll() {
-  return useEffect(() => {
-    if (typeof window !== "undefined") {
-      const SmoothScroll = require("smooth-scroll");
-      const scroll = new SmoothScroll('a[href*="#"]', {
-        speed: 800,
-        offset: 50,
-      });
-
-      return () => {
-        scroll.destroy();
-      };
-    }
-  }, []);
-}
+// El scroll suave se maneja con CSS nativo: scroll-behavior: smooth en globals.css
+export function useNavigationScroll() {}
